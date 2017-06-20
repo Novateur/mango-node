@@ -24,6 +24,8 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+    /*width: 400px; !important;*/
+    padding-right: 0 !important;
 }
 
 .pad {
@@ -187,19 +189,19 @@ body {
   position: relative;
   top: -2px;
 }
-.pad .dial-pad .digits .dig.addPerson, .pad .dial-pad .digits .dig.goBack {
+.pad .dial-pad .digits .dig.sendMessage, .pad .dial-pad .digits .dig.goBack {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 55% auto;
   margin-bottom: 25px;
   box-shadow: 0px  25px 30px -15px black;
 }
-.pad .dial-pad .digits .dig.addPerson {
-  background-color: #285EFA;
-  background-image: url(https://s16.postimg.org/4u2rbu85t/add_Person.png);
+.pad .dial-pad .digits .dig.sendMessage {
+  background-color: #ffffff;
+  background-image: url(https://cdn0.iconfinder.com/data/icons/mobile-set/154/letter-512.png);
 }
-.pad .dial-pad .digits .dig.addPerson.clicked {
-  animation: pulse-blue linear 0.5s 1;
+.pad .dial-pad .digits .dig.sendMessage.clicked {
+  animation: pulse-white linear 0.5s 1;
 }
 .pad .dial-pad .digits .dig.goBack {
   background-color: #FA4A5D;
@@ -426,9 +428,9 @@ body {
     transform: scale(1, 1);
   }
 }
-@keyframes pulse-blue {
+@keyframes pulse-white {
   0% {
-    box-shadow: inset 0 0 0px 30px #285EFA, inset 0 0 0px 30px white;
+    box-shadow: inset 0 0 0px 30px #ffffff, inset 0 0 0px 30px white;
     -ms-transform: scale(1, 1);
     -webkit-transform: scale(1, 1);
     transform: scale(1, 1);
@@ -439,10 +441,10 @@ body {
     transform: scale(0.8, 0.8);
   }
   30% {
-    box-shadow: inset 0 0 0px 10px #285EFA, inset 0 0 0px 30px white;
+    box-shadow: inset 0 0 0px 10px #ffffff, inset 0 0 0px 30px white;
   }
   60% {
-    box-shadow: inset 0 0 0px 0px #285EFA, inset 0 0 0px 0px white;
+    box-shadow: inset 0 0 0px 0px #ffffff, inset 0 0 0px 0px white;
     -ms-transform: scale(0.8, 0.8);
     -webkit-transform: scale(0.8, 0.8);
     transform: scale(0.8, 0.8);
@@ -578,4 +580,20 @@ footer{
     position: absolute;
     left: 0;
     bottom: 0; 
+}
+.modal-content > p, .input-field > p{
+    position: inherit;
+    color: black;
+
+}
+span.close{
+    cursor: pointer;
+}
+
+.modal-overlay{
+  display: none !important;
+}
+
+body{
+  padding: 0 !important;
 }

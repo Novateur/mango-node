@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var morgan = require('morgan');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -21,9 +21,19 @@ app.set('view engine', 'ejs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+
+// app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Parse incoming request bodies as form-encoded
+app.use(bodyParser.urlencoded({
+	extended: true,
+}));
+
+// Use morgan for HTTP request logging
+app.use(morgan('combined'));
+
 
 app.use('/', index);
 app.use('/users', users);
@@ -44,6 +54,7 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+
 });
 
 module.exports = app;

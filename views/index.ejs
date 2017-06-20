@@ -1,168 +1,197 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title><%= title %></title>
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
 
-    <div id="holder">
+<div id="holder">
+
     <nav class="light-blue lighten-1" role="navigation">
-      <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><%= title %></a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
+        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><%= title %></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Navbar Link</a></li>
+            </ul>
 
-        <ul id="nav-mobile" class="side-nav">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-      </div>
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="#">Navbar Link</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
     </nav>
     <div id="body">
- <!--    <div class="main container">
-      <div class="row">
 
-        <form id="msgForm" class="col s12">
-          <div class="row">
+        <div class="pad">
+            <div class="dial-pad">
+                <div class="contact">
+                    <div class="avatar"
+                         style="background-image: url('https://c1.staticflickr.com/4/3303/3421201120_37e20c12ba.jpg')"></div>
+                    <div class="contact-info">
+                        <div class="contact-name">Matt Sich</div>
+                        <div class="contact-position">CodePenner</div>
+                        <div class="contact-number">
+                            (123) 456 - 7890
+                        </div>
+                    </div>
+                    <div class="contact-buttons">
+                        <button class="icon-message"
+                                style="background-image: url(https://s2.postimg.org/bpik42e39/comment_Bubble.png)"></button>
+                        <button class="icon-video"
+                                style="background-image: url(https://s10.postimg.org/e7vjpqao5/camera.png)"></button>
+                    </div>
+                </div>
 
-          <div class="row ">
-            <div class="input-field col s6 offset-s3">
-              <input id="telNum" type="number" class="validate" placeholder="phone num">
-              <label for="telNum" class="active">Phone Number</label>
+                <!-- The send message Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <div class="row">
+                            <form id="msgForm" class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <p>Number you are going to call is: <span id="phoneNumToText"></span></p>
+                                        <!--<i class="material-icons prefix">phone</i>-->
+                                        <!--<input id="icon_telephone" type="tel" class="validate">-->
+                                        <!--<label for="icon_telephone">Telephone</label>-->
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <textarea id="messageArea" class="materialize-textarea"></textarea>
+                                        <label for="messageArea">Your Message</label>
+                                    </div>
+                                    <button id="sendMessageBtn" class="btn waves-effect waves-light" type="submit"
+                                            name="action">Send
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- The receive message Modal -->
+                <div id="myInboundMessage" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <div class="row">
+                            <div id="inboundMessage" class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <p id="inboundMessageText">Number you are going to call is:</p>
+                                    </div>
+
+                                    <button  class="btn waves-effect waves-light close"
+                                            type="submit"
+                                            name="action">OK
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="phoneString">
+                    <input id="numTyped" type="text">
+                </div>
+
+
+                <div class="digits">
+                    <div class="dig pound number-dig" name="1">1</div>
+                    <div class="dig number-dig" name="2">2
+                        <div class="sub-dig">ABC</div>
+                    </div>
+                    <div class="dig number-dig" name="3">3
+                        <div class="sub-dig">DEF</div>
+                    </div>
+                    <div class="dig number-dig" name="4">4
+                        <div class="sub-dig">GHI</div>
+                    </div>
+                    <div class="dig number-dig" name="5">5
+                        <div class="sub-dig">JKL</div>
+                    </div>
+                    <div class="dig number-dig" name="6">6
+                        <div class="sub-dig">MNO</div>
+                    </div>
+                    <div class="dig number-dig" name="7">7
+                        <div class="sub-dig">PQRS</div>
+                    </div>
+                    <div class="dig number-dig" name="8">8
+                        <div class="sub-dig">TUV</div>
+                    </div>
+                    <div class="dig number-dig" name="9">9
+                        <div class="sub-dig">WXYZ</div>
+                    </div>
+                    <div class="dig number-dig astrisk" name="*">*</div>
+                    <div class="dig number-dig pound" name="0">0</div>
+                    <div class="dig number-dig pound" name="#">#</div>
+                </div>
+
+                <!--buttom buttons-->
+                <div class="digits">
+                    <div id="myModalTrigger" class="dig sendMessage action-dig " style="margin: 0;"></div>
+                    <div class="dig-spacer"></div>
+                    <div class="dig goBack action-dig" style="margin: 0;"></div>
+                </div>
             </div>
-          </div>
+            <div class="call-pad">
+                <div class='pulsate'>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
 
-          <div class="row">
-            <div class="input-field col s6 offset-s3">
-              <input id="message" type="text" class="validate" placeholder="Your message here " >
-              <label for="message" class="active">Message</label>
+                <div class="ca-avatar"
+                     style="background-image: url(https://c1.staticflickr.com/4/3303/3421201120_37e20c12ba.jpg);"></div>
+
+                <div class="ca-name">Matt Sich</div>
+                <div class="ca-number">123 456 7890</div>
+                <div class="ca-status" data-dots="...">Calling</div>
+                <div class="ca-buttons">
+                    <div class="ca-b-single" data-label="Add Contact"
+                         style="background-image: url(https://s1.postimg.org/gqfpipyy3/add_People.png)">
+                    </div>
+                    <div class="ca-b-single" data-label="Mute"
+                         style="background-image: url(https://s17.postimg.org/hzg2431gr/mic.png)">
+                    </div>
+                    <div class="ca-b-single" data-label="Speaker"
+                         style="background-image: url(https://s27.postimg.org/bebfcp8bj/speaker.png)"></div>
+                    <div class="ca-b-single" data-label="Face to Face"
+                         style="background-image: url(https://s4.postimg.org/s5xyjztd5/facetoface.png)">
+                    </div>
+                    <div class="ca-b-single" data-label="Chat"
+                         style="background-image: url(https://s29.postimg.org/tlddup9nn/message_Bubble.png)">
+                    </div>
+                    <div class="ca-b-single" data-label="Keypad"
+                         style="background-image: url(https://s7.postimg.org/uxqt9hw5z/keypad.png)">
+                    </div>
+                </div>
             </div>
-          </div>
 
-            <div class="row">
-              <button id="btnSendMessage" class="btn waves-effect waves-light col s3 offset-s3" type="submit"
-                      name="action" ><i class="material-icons">message</i>
-              </button>
-              <button id="makeCallBtn" class="btn waves-effect waves-light col s3"><i
-                          class="material-icons">phone</i></button>
+            <div class="call action-dig">
+                <div class="call-change"><span></span></div>
+                <div class="call-icon"></div>
             </div>
-
-           </button>-->
-    <!--       </div>
-        </form>
-      </div>
-    </div> -->
-
-
-
-<div class="pad">
-  <div class="dial-pad">
-    <div class="contact">
-      <div class="avatar" style="background-image: url('https://c1.staticflickr.com/4/3303/3421201120_37e20c12ba.jpg')"></div>
-      <div class="contact-info">
-        <div class="contact-name">Matt Sich</div>
-        <div class="contact-position">CodePenner</div>
-        <div class="contact-number">
-          (123) 456 - 7890
         </div>
-      </div>
-      <div class="contact-buttons">
-        <button class="icon-message" style="background-image: url(https://s2.postimg.org/bpik42e39/comment_Bubble.png)"></button>
-        <button class="icon-video" style="background-image: url(https://s10.postimg.org/e7vjpqao5/camera.png)"></button>
-      </div>
-    </div>
-    <div class="phoneString">
-      <input id="numTyped" type="text" disabled>
-    </div>
-    <div class="digits">
-      <div class="dig pound number-dig" name="1">1</div>
-      <div class="dig number-dig" name="2">2
-        <div class="sub-dig">ABC</div>
-      </div>
-      <div class="dig number-dig" name="3">3
-        <div class="sub-dig">DEF</div>
-      </div>
-      <div class="dig number-dig" name="4">4
-        <div class="sub-dig">GHI</div>
-      </div>
-      <div class="dig number-dig" name="5">5
-        <div class="sub-dig">JKL</div>
-      </div>
-      <div class="dig number-dig" name="6">6
-        <div class="sub-dig">MNO</div>
-      </div>
-      <div class="dig number-dig" name="7">7
-        <div class="sub-dig">PQRS</div>
-      </div>
-      <div class="dig number-dig" name="8">8
-        <div class="sub-dig">TUV</div>
-      </div>
-      <div class="dig number-dig" name="9">9
-        <div class="sub-dig">WXYZ</div>
-      </div>
-      <div class="dig number-dig astrisk" name="*">*</div>
-      <div class="dig number-dig pound" name="0">0</div>
-      <div class="dig number-dig pound" name="#">#</div>
-    </div>
-    <div class="digits">
-      <div class="dig addPerson action-dig"></div>
-      <div class="dig-spacer"></div>
-      <div class="dig goBack action-dig"></div>
-    </div>
-  </div>
-  <div class="call-pad">
-    <div class='pulsate'>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <div class="ca-avatar" style="background-image: url(https://c1.staticflickr.com/4/3303/3421201120_37e20c12ba.jpg);"></div>
-    <div class="ca-name">Matt Sich</div>
-    <div class="ca-number">123 456 7890</div>
-    <div class="ca-status" data-dots="...">Calling</div>
-    <div class="ca-buttons">
-      <div class="ca-b-single" data-label="Add Contact" style="background-image: url(https://s1.postimg.org/gqfpipyy3/add_People.png)">
-      </div>
-      <div class="ca-b-single" data-label="Mute" style="background-image: url(https://s17.postimg.org/hzg2431gr/mic.png)">
-      </div>
-      <div class="ca-b-single" data-label="Speaker" style="background-image: url(https://s27.postimg.org/bebfcp8bj/speaker.png)"></div>
-      <div class="ca-b-single" data-label="Face to Face" style="background-image: url(https://s4.postimg.org/s5xyjztd5/facetoface.png)">
-      </div>
-      <div class="ca-b-single" data-label="Chat" style="background-image: url(https://s29.postimg.org/tlddup9nn/message_Bubble.png)">
-      </div>
-      <div class="ca-b-single" data-label="Keypad" style="background-image: url(https://s7.postimg.org/uxqt9hw5z/keypad.png)">
-      </div>
-    </div>
-  </div>
 
-  <div class="call action-dig">
-    <div class="call-change"><span></span></div>
-    <div class="call-icon"></div>
-  </div>
+    </div>
+
 </div>
 
+<!-- Compiled and minified JavaScript -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+<script src="javascripts/style.js"></script>
 
-<!--CREDITS-->
-<p>Based on a <a href="https://dribbble.com/shots/2280148-Day-003-365-Animated-Dial-Pad" target="_blank"><img src="https://d13yacurqjgara.cloudfront.net/assets/dribbble-ball-big-77cb1edbdf66504815845c671e84465c.png"></a> by <a href="https://dribbble.com/hellogiov"  target="_blank">Giovanni XU</a></p>
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-    <script src="js/index.js"></script>
-
-    <!-- div to display message-->
-    <!--<p id="received"></p>-->
-       </div>
-    </div>
-    <!-- Compiled and minified JavaScript -->
-    <script
-            src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-    <script src="/javascripts/style.js"></script>
-
-  </body>
+</body>
 </html>
